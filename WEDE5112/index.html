@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apex Endurance - Premium guides, pace calculators, and gear checklists for long-distance running and cycling.">
+    <title>Apex Endurance | Running & Cycling Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-bolt logo-icon"></i>
+                <span>APEX<span class="logo-accent">ENDURANCE</span></span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#calculator" class="nav-link">Pace Calculator</a>
+                <a href="#plans" class="nav-link">Training Plans</a>
+                <a href="#gear" class="nav-link">Gear Checklists</a>
+                <a href="#routes" class="nav-link">Routes</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">Push Your Limits</span>
+                <h1>Master the Distance: Running & Cycling</h1>
+                <p>Structured training plans, precision pace calculations, and essential gear blueprints engineered for endurance athletes.</p>
+                <div class="hero-actions">
+                    <a href="#plans" class="btn btn-primary">Explore Plans</a>
+                    <a href="#calculator" class="btn btn-secondary">Calculate Pace</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discipline Selector / Filter -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All Disciplines</button>
+                    <button class="filter-btn" data-filter="running">
+                        <i class="fa-solid fa-person-running"></i> Long Distance Running
+                    </button>
+                    <button class="filter-btn" data-filter="cycling">
+                        <i class="fa-solid fa-person-biking"></i> Endurance Cycling
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pace & Finish Time Calculator -->
+        <section id="calculator" class="section bg-card-dark">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Pace & Finish Time Calculator</h2>
+                    <p>Select your sport and distance to estimate your target race pace or target finish time.</p>
+                </div>
+
+                <div class="calculator-card">
+                    <div class="calc-grid">
+                        <div class="calc-inputs">
+                            <div class="form-group">
+                                <label for="calcSport">Sport Discipline</label>
+                                <select id="calcSport" class="form-control">
+                                    <option value="running">Running</option>
+                                    <option value="cycling">Cycling</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="calcDistance">Event Distance</label>
+                                <select id="calcDistance" class="form-control">
+                                    <option value="21.1">Half Marathon (21.1 km)</option>
+                                    <option value="42.2" selected>Full Marathon (42.2 km)</option>
+                                    <option value="100">100 km Ultra / Ride</option>
+                                    <option value="160.9">Century Ride (160.9 km / 100 mi)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="hours">Hours</label>
+                                    <input type="number" id="hours" class="form-control" value="3" min="0" max="24">
+                                </div>
+                                <div class="form-group">
+                                    <label for="minutes">Minutes</label>
+                                    <input type="number" id="minutes" class="form-control" value="45" min="0" max="59">
+                                </div>
+                                <div class="form-group">
+                                    <label for="seconds">Seconds</label>
+                                    <input type="number" id="seconds" class="form-control" value="0" min="0" max="59">
+                                </div>
+                            </div>
+
+                            <button id="calcBtn" class="btn btn-primary btn-block">Calculate Metrics</button>
+                        </div>
+
+                        <div class="calc-results">
+                            <div class="result-box">
+                                <span class="result-label">Target Average Speed</span>
+                                <span class="result-value" id="speedResult">11.25 <small>km/h</small></span>
+                            </div>
+
+                            <div class="result-box">
+                                <span class="result-label">Average Pace</span>
+                                <span class="result-value" id="paceResult">05:20 <small>min/km</small></span>
+                            </div>
+
+                            <div class="result-box">
+                                <span class="result-label">Estimated Split (50% mark)</span>
+                                <span class="result-value" id="splitResult">01:52:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Plans -->
+        <section id="plans" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Training Plans</h2>
+                    <p>Progressive block periodization designed for peak performance on race day.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Running Plan -->
+                    <article class="card" data-category="running">
+                        <div class="card-tag running-tag">Running</div>
+                        <h3>16-Week Marathon Blueprint</h3>
+                        <p>A structured plan focused on aerobic base development, mid-week tempo sessions, and progressive long runs.</p>
+                        <ul class="card-list">
+                            <li><i class="fa-solid fa-check text-orange"></i> Peak Volume: 70–85 km/week</li>
+                            <li><i class="fa-solid fa-check text-orange"></i> Key Focus: Aerobic Threshold & Fueling</li>
+                            <li><i class="fa-solid fa-check text-orange"></i> Includes 3-Week Taper Strategy</li>
+                        </ul>
+                        <a href="#" class="card-link text-orange">View Full Program <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- Cycling Plan -->
+                    <article class="card" data-category="cycling">
+                        <div class="card-tag cycling-tag">Cycling</div>
+                        <h3>Century Ride (160km) Mastery</h3>
+                        <p>Designed for road cyclists preparing for 100-mile endurance events with structured FTP and cadence work.</p>
+                        <ul class="card-list">
+                            <li><i class="fa-solid fa-check text-cyan"></i> Peak Volume: 8–12 hours/week</li>
+                            <li><i class="fa-solid fa-check text-cyan"></i> Key Focus: Sustained Power & Group Riding</li>
+                            <li><i class="fa-solid fa-check text-cyan"></i> On-bike Nutrition Strategies Included</li>
+                        </ul>
+                        <a href="#" class="card-link text-cyan">View Full Program <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- Hybrid/Cross Training Plan -->
+                    <article class="card" data-category="running cycling">
+                        <div class="card-tag hybrid-tag">Dual Sport</div>
+                        <h3>Endurance Cross-Training</h3>
+                        <p>Combine long-distance running with low-impact cycling volume to increase cardiovascular endurance while limiting injury risk.</p>
+                        <ul class="card-list">
+                            <li><i class="fa-solid fa-check text-brand"></i> 3 Running Days + 2 Cycling Days</li>
+                            <li><i class="fa-solid fa-check text-brand"></i> Active Recovery Protocol</li>
+                            <li><i class="fa-solid fa-check text-brand"></i> Ideal for Multi-Sport Athletes</li>
+                        </ul>
+                        <a href="#" class="card-link text-brand">View Full Program <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Gear Checklists -->
+        <section id="gear" class="section bg-card-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Essential Gear Checklists</h2>
+                    <p>Never forget critical nutrition or safety gear on long training days.</p>
+                </div>
+
+                <div class="gear-container">
+                    <!-- Running Checklist -->
+                    <div class="gear-card" data-category="running">
+                        <div class="gear-header">
+                            <i class="fa-solid fa-person-running text-orange"></i>
+                            <h3>Marathon & Ultra Checklist</h3>
+                        </div>
+                        <ul class="checklist">
+                            <li>
+                                <input type="checkbox" id="run1">
+                                <label for="run1">Cushioned Long Distance Shoes</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="run2">
+                                <label for="run2">Hydration Vest / Handheld Bottle</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="run3">
+                                <label for="run3">Energy Gels (1 gel per 30–45 mins)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="run4">
+                                <label for="run4">Electrolyte Replacement Tablets</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="run5">
+                                <label for="run5">Anti-Chafe Balm</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cycling Checklist -->
+                    <div class="gear-card" data-category="cycling">
+                        <div class="gear-header">
+                            <i class="fa-solid fa-person-biking text-cyan"></i>
+                            <h3>Century Ride Checklist</h3>
+                        </div>
+                        <ul class="checklist">
+                            <li>
+                                <input type="checkbox" id="bike1">
+                                <label for="bike1">Padded Bib Shorts & Helmet</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="bike2">
+                                <label for="bike2">Saddle Bag (Spare Tube, Levers, CO2)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="bike3">
+                                <label for="bike3">2x 750ml Water Bottles with Carbs</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="bike4">
+                                <label for="bike4">GPS Bike Computer (Loaded Route)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="bike5">
+                                <label for="bike5">Wind Vest / Arm Warmers</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Iconic Routes -->
+        <section id="routes" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Iconic Endurance Routes</h2>
+                    <p>Breathtaking long-distance courses around the globe.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="route-card" data-category="cycling">
+                        <div class="route-badge cycling-tag">Cycling</div>
+                        <div class="route-info">
+                            <h4>Chapman's Peak Drive</h4>
+                            <p class="route-meta"><i class="fa-solid fa-location-dot"></i> Cape Town, South Africa | 109 km</p>
+                            <p>Featuring coastal cliffs, steep climbs, and ocean panoramas on world-famous cycling roads.</p>
+                        </div>
+                    </div>
+
+                    <div class="route-card" data-category="running">
+                        <div class="route-badge running-tag">Running</div>
+                        <h4>Berlin Marathon Course</h4>
+                        <p class="route-meta"><i class="fa-solid fa-location-dot"></i> Berlin, Germany | 42.2 km</p>
+                        <p>Renowned as one of the fastest marathon routes globally with flat, wide tarmac roads.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-bolt logo-icon"></i>
+                    <span>APEX<span class="logo-accent">ENDURANCE</span></span>
+                </a>
+                <p>Empowering long-distance runners and endurance cyclists with data-driven training strategies and tools.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Endurance. Designed for long-distance performance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Linked JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
